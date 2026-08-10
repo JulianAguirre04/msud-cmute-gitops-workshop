@@ -41,7 +41,11 @@ spec:
             - name: world
               mountPath: /server/world
             - name: plugins
-              mountPath: /server/plugins
+              mountPath: /server/plugins/Geyser-Spigot
+              subPath: Geyser-Spigot
+            - name: plugins
+              mountPath: /server/plugins/floodgate
+              subPath: floodgate
           startupProbe:
             tcpSocket:
               port: 25565
