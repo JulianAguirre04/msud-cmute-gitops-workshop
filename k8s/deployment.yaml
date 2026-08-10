@@ -20,11 +20,13 @@ spec:
         fsGroup: 1000
       containers:
         - name: paper
-          # Replace <YOUR_GITHUB_USERNAME> 
-          # MAKE SURE THIS IS LOWERCASE OTHERWISE YOU'LL GET AN ERROR :) 
-          image: ghcr.io/<YOUR_GITHUB_USERNAME>/msud-cmute-gitops-workshop:latest
+          image: ghcr.io/julianaguirre04/msud-cmute-gitops-workshop:latest
           ports:
             - containerPort: 25565
+              hostPort: 25565
+            - containerPort: 19132
+              hostPort: 19132
+              protocol: UDP
           resources:
             requests:
               memory: "1Gi"
@@ -38,6 +40,8 @@ spec:
               subPath: server.properties
             - name: world
               mountPath: /server/world
+            - name: plugins
+              mountPath: /server/plugins
           startupProbe:
             tcpSocket:
               port: 25565
@@ -55,3 +59,6 @@ spec:
         - name: world
           persistentVolumeClaim:
             claimName: paper-world
+        - name: plugins
+          persistentVolumeClaim:
+            claimName: paper-plugins
