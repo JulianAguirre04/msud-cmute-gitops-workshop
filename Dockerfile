@@ -16,7 +16,7 @@ RUN DOWNLOAD_URL=$(curl -s -H "User-Agent: msud-workshop-student (https://github
 
 RUN echo "eula=true" > eula.txt
 
-RRUN mkdir -p plugins \
+RUN mkdir -p plugins \
 && curl -fLo plugins/Geyser-Spigot.jar https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot \
 && curl -fLo plugins/Floodgate-Spigot.jar https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot \
 && curl -fLo plugins/ViaVersion.jar https://hangar.papermc.io/api/v1/projects/ViaVersion/ViaVersion/versions/5.11.0/PAPER/download \
