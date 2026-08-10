@@ -17,8 +17,8 @@ RUN DOWNLOAD_URL=$(curl -s -H "User-Agent: msud-workshop-student (https://github
 RUN echo "eula=true" > eula.txt
 
 RUN mkdir -p plugins \
-    && curl -fo plugins/Geyser-Spigot.jar https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot \
-    && curl -fo plugins/Floodgate-Spigot.jar https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+    && curl -fLo plugins/Geyser-Spigot.jar https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot \
+    && curl -fLo plugins/Floodgate-Spigot.jar https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
 EXPOSE 25565
 EXPOSE 19132/udp
